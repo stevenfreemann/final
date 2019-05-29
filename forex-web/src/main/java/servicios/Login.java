@@ -83,6 +83,7 @@ public class Login {
         p.setId_rol(1);
         p.setFoto("asdasdaasd");
         //p.setIdUsuario(1);
+        p.setNombreUsuario("stev45");
         
         
         user.agregarUsuario(p);
