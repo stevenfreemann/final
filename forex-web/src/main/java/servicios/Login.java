@@ -6,7 +6,11 @@
 package servicios;
 
 import bean.divisas;
+import bean.divisasLocal;
 import bean.saldo;
+import bean.saldoLocal;
+import bean.usuarios;
+import bean.usuariosLocal;
 import javax.ejb.EJB;
 import pojos.pojousuario;
 import javax.json.Json;
@@ -28,13 +32,13 @@ import utilitarios.token;
 @Path("login")
 public class Login {
     @EJB
-    pojousuario user;
+    usuariosLocal user;
     
     @EJB
-    saldo saldo;
+    saldoLocal saldo;
     
     @EJB
-    divisas divisa;
+    divisasLocal divisa;
      @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{user},{pass}")    
@@ -71,30 +75,30 @@ public class Login {
     @GET
     @Path("registro")    
     public Response registrar() {
-        /*PojoUsuario p=new PojoUsuario();
-        p.setId(1);
-        p.setNombre("arturo"); 
-        p.setNombreUsuario("artiruto21");
-        p.setClave("clavearturo");
-        p.setCorreo("arturo@hot.com");
-        p.setEstado(1);
-        p.setIdRol(1);
-        p.setRutaFoto("kgtrjfdjkg");
-        p.setToken("58769i05gfywhnmf");
-        user.editarUsuario(p);
+        pojousuario p=new pojousuario();
+        p.setNombre("wilson");
+        p.setApellido("rodriguez");
+        p.setCedula(199299);
+        p.setCorreo("weqwe@ddf.com");
+        p.setId_rol(1);
+        p.setFoto("asdasdaasd");
+        //p.setIdUsuario(1);
         
-        PojoSaldo s=new PojoSaldo();
+        
+        user.agregarUsuario(p);
+        
+      /*  PojoSaldo s=new PojoSaldo();
         s.setIdSaldo(1);
         s.setIdUsuario(1);
         s.setSaldoActual(20.2D);
         s.setSaldoTemporal(50.5D);        
-        saldo.editarSaldo(s);*/
+        saldo.editarSaldo(s);
         
-        pojodivisa d=new pojodivisa();        
+      /*  pojodivisa d=new pojodivisa();        
         d.setIdDivisa(2);
         d.setValor(1.7D);
         d.setDivisa("EUR/USD");
-        divisa.editarDivisa(d);
+        divisa.editarDivisa(d);*/
         
         return Response.ok().build();            
     }
